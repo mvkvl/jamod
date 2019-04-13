@@ -1,0 +1,9 @@
+mvn install:install-file \
+           -DgroupId=net.wimpi.modbus \
+           -DartifactId=jamod         \
+           -Dversion=1.2.3            \
+           -Dfile=$1                  \
+           -Dpackaging=jar            \
+           -DgeneratePom=true         \
+           -DlocalRepositoryPath=.    \
+           -DcreateChecksum=true
