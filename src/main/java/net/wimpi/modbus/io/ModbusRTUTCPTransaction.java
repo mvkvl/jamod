@@ -32,7 +32,8 @@ public class ModbusRTUTCPTransaction implements ModbusTransaction
 	private boolean m_ValidityCheck = Modbus.DEFAULT_VALIDITYCHECK;
 	private boolean m_Reconnecting = Modbus.DEFAULT_RECONNECTING;
 	private int m_Retries = Modbus.DEFAULT_RETRIES;
-	
+	private long m_RetryDelayMillis;
+
 	private Mutex m_TransactionLock = new Mutex();
 	
 	/**
@@ -145,7 +146,17 @@ public class ModbusRTUTCPTransaction implements ModbusTransaction
 	{
 		return m_Retries;
 	}// getRetries
-	
+
+	@Override
+	public void setRetryDelayMillis(long retryDelayMillis) {
+		m_RetryDelayMillis = retryDelayMillis;
+	}
+
+	@Override
+	public long getRetryDelayMillis() {
+		return m_RetryDelayMillis;
+	}
+
 	public void setRetries(int num)
 	{
 		m_Retries = num;
